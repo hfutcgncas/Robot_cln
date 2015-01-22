@@ -137,6 +137,21 @@ namespace PmacWPFTest
             button_HM.IsEnabled = true;
         }
 
+        private void slider_Pos_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            string cmd = "P1 = ";
+            string Rt;
+            int Statue;
+
+            cmd += ((int)slider_Pos.Value).ToString();
+
+            Pmac.GetResponseEx(m_nDevice, cmd, true, out Rt, out Statue);
+
+            Pmac.GetResponseEx(m_nDevice, "P1", true, out Rt, out Statue);
+            TB_rtCMD.Text = Rt;
+        }
+
+
 
 
 

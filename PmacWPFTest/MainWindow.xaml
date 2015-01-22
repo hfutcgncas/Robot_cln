@@ -22,10 +22,11 @@
         </GroupBox>
         <TextBlock x:Name="textBlock_ConSta" HorizontalAlignment="Left" Height="46" Margin="32,66,0,0" TextWrapping="Wrap" Text="connect statue" VerticalAlignment="Top" Width="257"/>
         <TextBlock x:Name="textBlock_Log" Grid.Column="1" HorizontalAlignment="Left" Height="32" Margin="31,61,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Width="112"/>
-        <ProgressBar x:Name="PB_OnRunning" Grid.Column="1" HorizontalAlignment="Left" Height="18" Margin="31,282,0,0" VerticalAlignment="Top" Width="148" />
+        <ProgressBar x:Name="PB_OnRunning" Grid.Column="1" HorizontalAlignment="Left" Height="18" Margin="31,223,0,0" VerticalAlignment="Top" Width="148" />
         <TextBox x:Name="TB_cmdIn" Grid.Column="1" HorizontalAlignment="Left" Height="24" Margin="6,127,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="119"/>
         <Button x:Name="BT_SendCMD" Content="BT_SendCMD" Grid.Column="1" HorizontalAlignment="Left" Margin="130,127,0,0" VerticalAlignment="Top" Width="49" Height="24" Click="BT_SendCMD_Click"/>
         <TextBlock x:Name="TB_rtCMD" Grid.Column="1" HorizontalAlignment="Left" Height="43" Margin="10,175,0,0" TextWrapping="Wrap" Text="rtCMD" VerticalAlignment="Top" Width="150"/>
+        <Slider x:Name="slider_Pos" Grid.Column="1" HorizontalAlignment="Left" Height="35" Margin="31,270,0,0" VerticalAlignment="Top" Width="148" SmallChange="1" Maximum="10000" Minimum="-10000" ValueChanged="slider_Pos_ValueChanged"/>
     </Grid>
 
 </Window>
