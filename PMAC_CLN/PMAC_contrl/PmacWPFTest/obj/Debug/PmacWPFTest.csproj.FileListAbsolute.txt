@@ -1,0 +1,67 @@
+d:\users\think\documents\visual studio 2015\Projects\PmacWPFTest\PmacWPFTest\bin\Debug\PmacWPFTest.exe.config
+d:\users\think\documents\visual studio 2015\Projects\PmacWPFTest\PmacWPFTest\bin\Debug\PmacWPFTest.exe
+d:\users\think\documents\visual studio 2015\Projects\PmacWPFTest\PmacWPFTest\bin\Debug\PmacWPFTest.pdb
+d:\users\think\documents\visual studio 2015\Projects\PmacWPFTest\PmacWPFTest\obj\Debug\PmacWPFTest.csprojResolveAssemblyReference.cache
+d:\users\think\documents\visual studio 2015\Projects\PmacWPFTest\PmacWPFTest\obj\Debug\Interop.PCOMMSERVERLib.dll
+d:\users\think\documents\visual studio 2015\Projects\PmacWPFTest\PmacWPFTest\obj\Debug\PmacWPFTest.csproj.ResolveComReference.cache
+d:\users\think\documents\visual studio 2015\Projects\PmacWPFTest\PmacWPFTest\obj\Debug\MainWindow.g.cs
+d:\users\think\documents\visual studio 2015\Projects\PmacWPFTest\PmacWPFTest\obj\Debug\App.g.cs
+d:\users\think\documents\visual studio 2015\Projects\PmacWPFTest\PmacWPFTest\obj\Debug\PmacWPFTest_MarkupCompile.cache
+d:\users\think\documents\visual studio 2015\Projects\PmacWPFTest\PmacWPFTest\obj\Debug\PmacWPFTest_MarkupCompile.lref
+d:\users\think\documents\visual studio 2015\Projects\PmacWPFTest\PmacWPFTest\obj\Debug\MainWindow.baml
+d:\users\think\documents\visual studio 2015\Projects\PmacWPFTest\PmacWPFTest\obj\Debug\PmacWPFTest.g.resources
+d:\users\think\documents\visual studio 2015\Projects\PmacWPFTest\PmacWPFTest\obj\Debug\PmacWPFTest.Properties.Resources.resources
+d:\users\think\documents\visual studio 2015\Projects\PmacWPFTest\PmacWPFTest\obj\Debug\PmacWPFTest.csproj.GenerateResource.Cache
+d:\users\think\documents\visual studio 2015\Projects\PmacWPFTest\PmacWPFTest\obj\Debug\PmacWPFTest.exe
+d:\users\think\documents\visual studio 2015\Projects\PmacWPFTest\PmacWPFTest\obj\Debug\PmacWPFTest.pdb
+D:\Users\Think\Documents\Visual Studio 2015\Projects\PmacWPFTest\PmacWPFTest\bin\Debug\Interop.PCOMMSERVERLib.dll
+C:\Users\DELL\Desktop\PmacWPFTest\PmacWPFTest\bin\Debug\PmacWPFTest.exe.config
+C:\Users\DELL\Desktop\PmacWPFTest\PmacWPFTest\obj\Debug\Interop.PCOMMSERVERLib.dll
+C:\Users\DELL\Desktop\PmacWPFTest\PmacWPFTest\obj\Debug\PmacWPFTest.csproj.ResolveComReference.cache
+C:\Users\DELL\Desktop\PmacWPFTest\PmacWPFTest\obj\Debug\PmacWPFTest.exe
+C:\Users\DELL\Desktop\PmacWPFTest\PmacWPFTest\obj\Debug\PmacWPFTest.pdb
+C:\Users\DELL\Desktop\PmacWPFTest\PmacWPFTest\bin\Debug\PmacWPFTest.exe
+C:\Users\DELL\Desktop\PmacWPFTest\PmacWPFTest\bin\Debug\PmacWPFTest.pdb
+C:\Users\DELL\Desktop\PmacWPFTest\PmacWPFTest\bin\Debug\Interop.PCOMMSERVERLib.dll
+C:\Users\DELL\Desktop\PmacWPFTest\PmacWPFTest\obj\Debug\MainWindow.g.cs
+C:\Users\DELL\Desktop\PmacWPFTest\PmacWPFTest\obj\Debug\App.g.cs
+C:\Users\DELL\Desktop\PmacWPFTest\PmacWPFTest\obj\Debug\PmacWPFTest_MarkupCompile.cache
+C:\Users\DELL\Desktop\PmacWPFTest\PmacWPFTest\obj\Debug\PmacWPFTest_MarkupCompile.lref
+C:\Users\DELL\Desktop\PmacWPFTest\PmacWPFTest\obj\Debug\MainWindow.baml
+C:\Users\DELL\Desktop\PmacWPFTest\PmacWPFTest\obj\Debug\PmacWPFTest.g.resources
+C:\Users\DELL\Desktop\PmacWPFTest\PmacWPFTest\obj\Debug\PmacWPFTest.Properties.Resources.resources
+C:\Users\DELL\Desktop\PmacWPFTest\PmacWPFTest\obj\Debug\PmacWPFTest.csproj.GenerateResource.Cache
+E:\liu\运动控制卡\我的程序\PmacWPFTest\PmacWPFTest\bin\Debug\PmacWPFTest.exe.config
+E:\liu\运动控制卡\我的程序\PmacWPFTest\PmacWPFTest\obj\Debug\Interop.PCOMMSERVERLib.dll
+E:\liu\运动控制卡\我的程序\PmacWPFTest\PmacWPFTest\obj\Debug\PmacWPFTest.csproj.ResolveComReference.cache
+E:\liu\运动控制卡\我的程序\PmacWPFTest\PmacWPFTest\obj\Debug\PmacWPFTest.exe
+E:\liu\运动控制卡\我的程序\PmacWPFTest\PmacWPFTest\obj\Debug\PmacWPFTest.pdb
+E:\liu\运动控制卡\我的程序\PmacWPFTest\PmacWPFTest\bin\Debug\PmacWPFTest.exe
+E:\liu\运动控制卡\我的程序\PmacWPFTest\PmacWPFTest\bin\Debug\PmacWPFTest.pdb
+E:\liu\运动控制卡\我的程序\PmacWPFTest\PmacWPFTest\bin\Debug\Interop.PCOMMSERVERLib.dll
+E:\liu\运动控制卡\我的程序\PmacWPFTest\PmacWPFTest\obj\Debug\MainWindow.g.cs
+E:\liu\运动控制卡\我的程序\PmacWPFTest\PmacWPFTest\obj\Debug\App.g.cs
+E:\liu\运动控制卡\我的程序\PmacWPFTest\PmacWPFTest\obj\Debug\PmacWPFTest_MarkupCompile.cache
+E:\liu\运动控制卡\我的程序\PmacWPFTest\PmacWPFTest\obj\Debug\PmacWPFTest_MarkupCompile.lref
+E:\liu\运动控制卡\我的程序\PmacWPFTest\PmacWPFTest\obj\Debug\MainWindow.baml
+E:\liu\运动控制卡\我的程序\PmacWPFTest\PmacWPFTest\obj\Debug\PmacWPFTest.g.resources
+E:\liu\运动控制卡\我的程序\PmacWPFTest\PmacWPFTest\obj\Debug\PmacWPFTest.Properties.Resources.resources
+E:\liu\运动控制卡\我的程序\PmacWPFTest\PmacWPFTest\obj\Debug\PmacWPFTest.csproj.GenerateResource.Cache
+E:\liu\运动控制卡\我的程序\PmacWPFTest\PmacWPFTest\obj\Debug\PmacWPFTest.csprojResolveAssemblyReference.cache
+C:\Users\DELL\Desktop\PMAC_CLN\PMAC_contrl\PmacWPFTest\bin\Debug\PmacWPFTest.exe.config
+C:\Users\DELL\Desktop\PMAC_CLN\PMAC_contrl\PmacWPFTest\obj\Debug\Interop.PCOMMSERVERLib.dll
+C:\Users\DELL\Desktop\PMAC_CLN\PMAC_contrl\PmacWPFTest\obj\Debug\PmacWPFTest.csproj.ResolveComReference.cache
+C:\Users\DELL\Desktop\PMAC_CLN\PMAC_contrl\PmacWPFTest\obj\Debug\PmacWPFTest.exe
+C:\Users\DELL\Desktop\PMAC_CLN\PMAC_contrl\PmacWPFTest\obj\Debug\PmacWPFTest.pdb
+C:\Users\DELL\Desktop\PMAC_CLN\PMAC_contrl\PmacWPFTest\bin\Debug\PmacWPFTest.exe
+C:\Users\DELL\Desktop\PMAC_CLN\PMAC_contrl\PmacWPFTest\bin\Debug\PmacWPFTest.pdb
+C:\Users\DELL\Desktop\PMAC_CLN\PMAC_contrl\PmacWPFTest\bin\Debug\Interop.PCOMMSERVERLib.dll
+C:\Users\DELL\Desktop\PMAC_CLN\PMAC_contrl\PmacWPFTest\obj\Debug\PmacWPFTest.csprojResolveAssemblyReference.cache
+C:\Users\DELL\Desktop\PMAC_CLN\PMAC_contrl\PmacWPFTest\obj\Debug\MainWindow.g.cs
+C:\Users\DELL\Desktop\PMAC_CLN\PMAC_contrl\PmacWPFTest\obj\Debug\App.g.cs
+C:\Users\DELL\Desktop\PMAC_CLN\PMAC_contrl\PmacWPFTest\obj\Debug\PmacWPFTest_MarkupCompile.cache
+C:\Users\DELL\Desktop\PMAC_CLN\PMAC_contrl\PmacWPFTest\obj\Debug\PmacWPFTest_MarkupCompile.lref
+C:\Users\DELL\Desktop\PMAC_CLN\PMAC_contrl\PmacWPFTest\obj\Debug\MainWindow.baml
+C:\Users\DELL\Desktop\PMAC_CLN\PMAC_contrl\PmacWPFTest\obj\Debug\PmacWPFTest.g.resources
+C:\Users\DELL\Desktop\PMAC_CLN\PMAC_contrl\PmacWPFTest\obj\Debug\PmacWPFTest.Properties.Resources.resources
+C:\Users\DELL\Desktop\PMAC_CLN\PMAC_contrl\PmacWPFTest\obj\Debug\PmacWPFTest.csproj.GenerateResource.Cache
