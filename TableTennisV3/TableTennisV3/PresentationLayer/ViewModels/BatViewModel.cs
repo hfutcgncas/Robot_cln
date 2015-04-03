@@ -16,6 +16,7 @@ namespace TableTennisV3.PresentationLayer.ViewModels
 {
     class BatViewModel : INotifyPropertyChanged
     {
+        //INotifyPropertyChanged Members 不需更改
         #region INotifyPropertyChanged Members
 
         /// <summary>
@@ -36,6 +37,7 @@ namespace TableTennisV3.PresentationLayer.ViewModels
         }
         #endregion
 
+        //Private Variables 包括变量和命令的定义
         #region Private Variables
         /*The Variables are meant to be readonly as we mustnot change the address of any of them by creating new instances.
          *Problem with new istances is that since address changes the binding becomes invalid.
@@ -45,8 +47,12 @@ namespace TableTennisV3.PresentationLayer.ViewModels
         private readonly ICommand _HomeCmd;
         private readonly ICommand _HitBallCmd;
         private readonly ICommand _MoveToCmd;
+
+        private readonly ICommand _ConectToPMACCmd;
+        private readonly ICommand _SendToPMACCmd;
         #endregion
 
+        //Private Variables 完成变量的初始化和命令函数的绑定
         #region Constructors
 
         /// <summary>
@@ -60,7 +66,24 @@ namespace TableTennisV3.PresentationLayer.ViewModels
             _HitBallCmd = new RelayCommand(HitBall, CanHitBall);
             _MoveToCmd  = new RelayCommand(MoveTo, CanMoveTo);
 
+            _ConectToPMACCmd = new RelayCommand(ConectToPMAC, CanConectToPMAC);
+            _SendToPMACCmd = new RelayCommand(SendToPMAC, CanSendToPMAC);
+
         }
+        #endregion
+
+        //Properties 用于交互的变量和命令
+        #region Properties & Commands
+
+        #region Commands
+
+
+        public ICommand ConectToPMACCmd { get { return _ConectToPMACCmd; } }
+
+        public ICommand SendToPMACCmd { get { return _SendToPMACCmd; } }
+
+        public ICommand MoveToCmd { get { return _MoveToCmd; } }
+
         #endregion
 
         #region Properties
@@ -111,8 +134,28 @@ namespace TableTennisV3.PresentationLayer.ViewModels
                 OnPropertyChanged("Hit_P");
             }
         }
+
+        public string PMAC_msg
+        {
+            get { return bat.pmac_msg; }
+            set
+            {
+                OnPropertyChanged("PMAC_msg");
+            }
+        }
+        public string PMAC_cmd
+        {
+            get { return bat.pmac_card.m_PMAC_cmd; }
+            set
+            {
+                bat.pmac_card.m_PMAC_cmd = value;
+                OnPropertyChanged("PMAC_cmd");
+            }
+        }
+        #endregion
         #endregion
 
+        //Commands 命令函数的定义
         #region Commands
         public bool CanHome(object obj)
         {
@@ -147,7 +190,29 @@ namespace TableTennisV3.PresentationLayer.ViewModels
                 return;
         }
         //----------------------------------------------------------
-
+        public bool CanConectToPMAC(object obj)
+        {
+            //Enable the Button in some situation
+            return true;
+        }
+        public void ConectToPMAC(object obj)
+        {
+            bat.pmac_card.ConectToPMAC();
+            PMAC_msg = bat.pmac_msg;
+        }
+        //----------------------------------------------------------
+        public bool CanSendToPMAC(object obj)
+        {
+            //Enable the Button in some situation
+            return true;
+        }
+        public void SendToPMAC(object obj)
+        {
+            bat.pmac_card.m_PMAC_cmd = PMAC_cmd;
+            bat.pmac_card.SendCMD();
+            PMAC_msg = bat.pmac_msg;
+            PMAC_cmd = "";
+        }
         #endregion
     }
 }

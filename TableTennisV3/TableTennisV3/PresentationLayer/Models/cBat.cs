@@ -10,6 +10,7 @@ namespace TableTennisV3.PresentationLayer.Models
 {
     class cBat
     {
+
         public cBat()
         {
             Hit_X = 0;
@@ -18,10 +19,39 @@ namespace TableTennisV3.PresentationLayer.Models
 
 //            ZSP_Interface = new cUDPServer();
 //            ZSP_Interface.initRcv();
+            pmac_card = new cPMAC();
         }
+        #region Variable
         #region Hit Variables
-        public int Hit_X { get; set; }
-        public int Hit_Y { get; set; }
+        //--------------
+        private int hit_x;
+        public int Hit_X
+        {
+            get { return hit_x; }
+            set
+            {
+                hit_x = value;
+                if (pmac_card != null && pmac_card.m_bDeviceOpen)
+                {
+                    Set_P("p1", value);
+                }
+            }
+        }
+        //--------------
+        private int hit_y;
+        public int Hit_Y
+        {
+            get { return hit_y; }
+            set
+            {
+                hit_y = value;
+                if (pmac_card != null && pmac_card.m_bDeviceOpen)
+                {
+                    Set_P("p2", value);
+                }
+            }
+        }
+        //--------------
         public int Hit_Z { get; set; }
         public int Hit_S { get; set; }
         public int Hit_P { get; set; }
@@ -35,7 +65,14 @@ namespace TableTennisV3.PresentationLayer.Models
         public double Realtime_P { get; set; }
         #endregion
 
-    //    private cUDPServer ZSP_Interface;
+        #region PMAC Variables
+        public cPMAC pmac_card;
+        public string pmac_msg { get { return pmac_card.m_PMAC_msg; } }
+        #endregion
+
+        #endregion
+        //    private cUDPServer ZSP_Interface;
+        //----------------------------------------
         //----------------------------------------
         public bool Home()
         {
@@ -56,6 +93,13 @@ namespace TableTennisV3.PresentationLayer.Models
 
         public bool HitBall()
         {
+            return false;
+        }
+
+        public bool Set_P(string px, int value)
+        {
+            pmac_card.m_PMAC_cmd = px + "=" + value.ToString();
+            pmac_card.SendCMD();
             return false;
         }
     }

@@ -32,7 +32,8 @@ namespace TableTennisV3
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            cTCPIPServer.StartClient();
+            MessageBox.Show("I'm here");
+           // cTCPIPServer.StartClient();
         }
     }
 }

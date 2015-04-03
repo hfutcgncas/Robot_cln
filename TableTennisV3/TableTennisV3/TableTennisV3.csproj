@@ -53,6 +53,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ToolResource\cPMAC.cs" />
     <Compile Include="ToolResource\cTCPIPServer.cs" />
     <Compile Include="ToolResource\cUDPServer.cs" />
     <Page Include="MainWindow.xaml">
@@ -107,6 +108,17 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="BusinessLogicLayer\" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="PCOMMSERVERLib">
+      <Guid>{50ECCF67-B73C-431B-A53D-9EDDAF3CE611}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </COMReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
