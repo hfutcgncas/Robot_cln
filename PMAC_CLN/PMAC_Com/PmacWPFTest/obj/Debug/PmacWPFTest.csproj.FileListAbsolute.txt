@@ -32,3 +32,8 @@ C:\Users\DELL\Documents\GitHub\Robot_cln\PmacWPFTest\obj\Debug\MainWindow.baml
 C:\Users\DELL\Documents\GitHub\Robot_cln\PmacWPFTest\obj\Debug\PmacWPFTest.g.resources
 C:\Users\DELL\Documents\GitHub\Robot_cln\PmacWPFTest\obj\Debug\PmacWPFTest.Properties.Resources.resources
 C:\Users\DELL\Documents\GitHub\Robot_cln\PmacWPFTest\obj\Debug\PmacWPFTest.csproj.GenerateResource.Cache
+D:\Users\Think\Documents\GitHub\Robot_cln\PMAC_CLN\PMAC_Com\PmacWPFTest\bin\Debug\PmacWPFTest.exe.config
+D:\Users\Think\Documents\GitHub\Robot_cln\PMAC_CLN\PMAC_Com\PmacWPFTest\obj\Debug\Interop.PCOMMSERVERLib.dll
+D:\Users\Think\Documents\GitHub\Robot_cln\PMAC_CLN\PMAC_Com\PmacWPFTest\obj\Debug\PmacWPFTest.csproj.ResolveComReference.cache
+D:\Users\Think\Documents\GitHub\Robot_cln\PMAC_CLN\PMAC_Com\PmacWPFTest\obj\Debug\PmacWPFTest.exe
+D:\Users\Think\Documents\GitHub\Robot_cln\PMAC_CLN\PMAC_Com\PmacWPFTest\obj\Debug\PmacWPFTest.pdb

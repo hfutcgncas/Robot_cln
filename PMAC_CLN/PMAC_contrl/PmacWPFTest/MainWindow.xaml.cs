@@ -266,18 +266,18 @@ namespace PmacWPFTest
 
         private void slider_V_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
-            string cmd = "P4 = ";
-            string Rt;
-            int Statue;
+            //string cmd = "P9 = ";
+            //string Rt;
+            //int Statue;
 
-            cmd += ((int)slider_V.Value).ToString();
+            //cmd += ((int)slider_V.Value).ToString();
 
-            if(Pmac != null)
-            {
-                Pmac.GetResponseEx(m_nDevice, cmd, true, out Rt, out Statue);
-                Pmac.GetResponseEx(m_nDevice, "P4", true, out Rt, out Statue);
-                TB_rtCMD.Text = Rt;
-            }
+            //if(Pmac != null)
+            //{
+            //    Pmac.GetResponseEx(m_nDevice, cmd, true, out Rt, out Statue);
+            //    Pmac.GetResponseEx(m_nDevice, "P9", true, out Rt, out Statue);
+            //    TB_rtCMD.Text = Rt;
+            //}
         }
 
         private void button_pg5_Click(object sender, RoutedEventArgs e)
