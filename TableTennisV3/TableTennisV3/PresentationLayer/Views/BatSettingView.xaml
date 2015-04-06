@@ -1,0 +1,41 @@
+﻿<UserControl x:Class="TableTennisV3.PresentationLayer.Views.BatSettingView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:TableTennisV3.PresentationLayer.Views"
+             xmlns:ViewModels="clr-namespace:TableTennisV3.PresentationLayer.ViewModels"
+             mc:Ignorable="d" Height="149.385" Width="383.308">
+    <UserControl.DataContext>
+        <ViewModels:BatViewModel/>
+    </UserControl.DataContext>
+
+    <Grid>
+        <StackPanel HorizontalAlignment="Left" Height="105" VerticalAlignment="Top" Width="87">
+            <TextBox HorizontalAlignment="Left" Height="20" Margin="10,0,0,0" TextWrapping="Wrap" Text="{Binding Path=Hit_X,Mode=TwoWay}" Width="72"/>
+            <TextBox HorizontalAlignment="Left" Height="20" Margin="10,0,0,0" TextWrapping="Wrap" Text="{Binding Path=Hit_Y,Mode=TwoWay}" Width="72"/>
+            <TextBox HorizontalAlignment="Left" Height="20" Margin="10,0,0,0" TextWrapping="Wrap" Text="{Binding Path=Hit_Z,Mode=TwoWay}" Width="72"/>
+            <TextBox HorizontalAlignment="Left" Height="20" Margin="10,0,0,0" TextWrapping="Wrap" Text="{Binding Path=Hit_S,Mode=TwoWay}" Width="72"/>
+            <TextBox HorizontalAlignment="Left" Height="20" Margin="10,0,0,0" TextWrapping="Wrap" Text="{Binding Path=Hit_P,Mode=TwoWay}" Width="72"/>
+
+        </StackPanel>
+
+        <StackPanel HorizontalAlignment="Left" Height="105" VerticalAlignment="Top" Width="83" Margin="92,0,0,0">
+            <Slider HorizontalAlignment="Left" Height="20" Margin="10,0,0,0" Width="72" Value="{Binding Path=Hit_X,Mode=TwoWay}" SmallChange="100" Maximum="1000"/>
+            <Slider HorizontalAlignment="Left" Height="20" Margin="10,0,0,0" Width="72" Value="{Binding Path=Hit_Y,Mode=TwoWay}" SmallChange="100" Maximum="1000"/>
+            <Slider HorizontalAlignment="Left" Height="20" Margin="10,0,0,0" Width="72" Value="{Binding Path=Hit_Z,Mode=TwoWay}" SmallChange="100" Maximum="1000"/>
+            <Slider HorizontalAlignment="Left" Height="20" Margin="10,0,0,0" Width="72" Value="{Binding Path=Hit_S,Mode=TwoWay}" SmallChange="100" Maximum="165" Minimum="80"/>
+            <Slider HorizontalAlignment="Left" Height="20" Margin="10,0,0,0" Width="72" Value="{Binding Path=Hit_P,Mode=TwoWay}" SmallChange="100" Maximum="160" Minimum="110"/>
+        </StackPanel>
+        <Button Content="ConectZSP" HorizontalAlignment="Left" Height="28" Margin="286,105,0,0" VerticalAlignment="Top" Width="77" Command="{Binding ConectToZSPCmd}"/>
+        <Button Content="ConectPMAC" HorizontalAlignment="Left" Height="28" Margin="200,105,0,0" VerticalAlignment="Top" Width="83" Command="{Binding ConectToPMACCmd}"/>
+        <Expander Header="PMAC_COMMAND" HorizontalAlignment="Left" Height="80" Margin="180,10,0,0" VerticalAlignment="Top" Width="183" >
+            <StackPanel HorizontalAlignment="Left" Height="60" Margin="10,0,0,0" Width="163">
+                <TextBox HorizontalAlignment="Left" Height="24" TextWrapping="Wrap"  VerticalAlignment="Top" Width="153"  Text="{Binding Path= PMAC_cmd,Mode=TwoWay}"  Margin="10,0,0,0" Background="#FFC5C5C5"/>
+                <Button Content="Send" HorizontalAlignment="Left" Height="29" Margin="10,0,0,0" Width="153" Command="{Binding SendToPMACCmd}"/>
+
+            </StackPanel>
+        </Expander>
+        <TextBlock HorizontalAlignment="Left" Height="34" TextWrapping="Wrap"  VerticalAlignment="Top" Width="165" Text="{Binding PMAC_msg}" Margin="10,105,0,0" Background="#FFC5C5C5"/>
+    </Grid>
+</UserControl>

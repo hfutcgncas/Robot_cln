@@ -1,0 +1,20 @@
+﻿生成启动时间为 2015/4/6 21:22:50。
+     1>项目“D:\Users\Think\桌面\SPStest\ZPStest\ZPStest.vcxproj”在节点 2 上(Build 个目标)。
+     1>ClCompile:
+         D:\Program Files\Microsoft Visual Studio 14.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc140.pdb" /Gd /TP /analyze- /errorReport:prompt main.cpp
+         main.cpp
+     1>d:\users\think\桌面\spstest\zpstest\main.cpp(117): warning C4101: “i”: 未引用的局部变量
+     1>d:\users\think\桌面\spstest\zpstest\main.cpp(115): warning C4101: “pDataStart”: 未引用的局部变量
+     1>d:\users\think\桌面\spstest\zpstest\main.cpp(116): warning C4101: “pDataEnd”: 未引用的局部变量
+       Link:
+         D:\Program Files\Microsoft Visual Studio 14.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\Users\Think\桌面\SPStest\Debug\ZPStest.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /Debug /PDB:"D:\Users\Think\桌面\SPStest\Debug\ZPStest.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\Users\Think\桌面\SPStest\Debug\ZPStest.lib" /MACHINE:X86 Debug\main.obj
+         Debug\motion.obj
+         Debug\Rs232.obj
+         Debug\Scomm.obj
+         Debug\stdafx.obj
+         ZPStest.vcxproj -> D:\Users\Think\桌面\SPStest\Debug\ZPStest.exe
+     1>已完成生成项目“D:\Users\Think\桌面\SPStest\ZPStest\ZPStest.vcxproj”(Build 个目标)的操作。
+
+生成成功。
+
+已用时间 00:00:01.45
