@@ -64,6 +64,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="cUDPInterface.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="motion.cpp" />
     <ClCompile Include="Rs232.cpp" />
@@ -71,6 +72,7 @@
     <ClCompile Include="stdafx.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="cUDPInterface.h" />
     <ClInclude Include="Rs232.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />

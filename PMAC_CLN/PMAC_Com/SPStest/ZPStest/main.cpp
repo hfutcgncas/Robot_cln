@@ -4,6 +4,7 @@
 #include "iostream"
 #include <string>
 #include "math.h"
+#include "cUDPInterface.h"
 //#include "motion.cpp"
 //--------------------------------------------------------------
 //运动轴范围限制
@@ -44,6 +45,8 @@ bool MoveAxisSP();
 //--------------------------------------------------------------
 int main(void)
 {
+	cUDPInterface UDPInterface;
+
 
 	if (false == SerialCommInit())
 	{
@@ -51,45 +54,50 @@ int main(void)
 		system("pause");
 		return 0;
 	}
-	//===============================
-	//初始化SP轴
-	UCHAR cmd[5];
-	cmd[0] = 'A';
-	cmd[1] = 'P';
-	cmd[2] = 'C';
-	cmd[3] = (UCHAR)m_dCurrentPosP;
-	cmd[4] = 'E';
-	SerialCommSendData(cmd);//设置当前位置为保存的位置
-	cmd[2] = 'T';
-	//cmd[3]=127;
-	SerialCommSendData(cmd);
-	cmd[0] = 'A';
-	cmd[1] = 'S';
-	cmd[2] = 'C';
-	cmd[3] = (UCHAR)m_dCurrentPosS;;
-	cmd[4] = 'E';
-	SerialCommSendData(cmd);
-	cmd[2] = 'T';
-	//cmd[3]=127;
-	SerialCommSendData(cmd);//设置当前位置为127
-	printf("\n如果重新上电，手动将S、P轴移动到中间位置，并运行S、P Home程序\n");
-	printf("\n需要运行S、P Home程序吗？(Y/N)\n");
-	cin >> cmd[0];
+	////===============================
+	////初始化SP轴
+	//UCHAR cmd[5];
+	//cmd[0] = 'A';
+	//cmd[1] = 'P';
+	//cmd[2] = 'C';
+	//cmd[3] = (UCHAR)m_dCurrentPosP;
+	//cmd[4] = 'E';
+	//SerialCommSendData(cmd);//设置当前位置为保存的位置
+	//cmd[2] = 'T';
+	////cmd[3]=127;
+	//SerialCommSendData(cmd);
+	//cmd[0] = 'A';
+	//cmd[1] = 'S';
+	//cmd[2] = 'C';
+	//cmd[3] = (UCHAR)m_dCurrentPosS;;
+	//cmd[4] = 'E';
+	//SerialCommSendData(cmd);
+	//cmd[2] = 'T';
+	////cmd[3]=127;
+	//SerialCommSendData(cmd);//设置当前位置为127
+	//printf("\n如果重新上电，手动将S、P轴移动到中间位置，并运行S、P Home程序\n");
+	//printf("\n需要运行S、P Home程序吗？(Y/N)\n");
+	//cin >> cmd[0];
 
-	if (cmd[0] == 'Y' || cmd[0] == 'y')
-	{
-		HomeAxisS();
-	}
-	else
-	{
-		printf("\n取消需要运行S、P Home程序.\n");
-	}
+	//if (cmd[0] == 'Y' || cmd[0] == 'y')
+	//{
+	//	HomeAxisS();
+	//}
+	//else
+	//{
+	//	printf("\n取消需要运行S、P Home程序.\n");
+	//}
 
+	UDPInterface.ComInit();
+
+	UDPInterface.recvBuf[1] = 's';
 	while (1)
 	{
-	//	MoveAxisS();
-		MoveAxisP();
-		Sleep(100);
+		UDPInterface.RecvData();
+
+	////	MoveAxisS();
+	//	MoveAxisP();
+	//	Sleep(100);
 	}
 	
 

@@ -1,17 +1,24 @@
-﻿Build started 2015/1/31 11:47:19.
-     1>Project "E:\users\dell\documents\visual studio 14\Projects\ZPStest\ZPStest\ZPStest.vcxproj" on node 2 (Build target(s)).
+﻿Build started 2015/3/18 20:57:59.
+     1>Project "C:\Users\DELL\Documents\GitHub\Robot_cln\PMAC_CLN\PMAC_Com\SPStest\ZPStest\ZPStest.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         D:\Program Files\Microsoft Visual Studio 14.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc140.pdb" /Gd /TP /analyze- /errorReport:prompt main.cpp
-         main.cpp
+         D:\Program Files\Microsoft Visual Studio 14.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc140.pdb" /Gd /TP /analyze- /errorReport:prompt cUDPInterface.cpp
+         cUDPInterface.cpp
+     1>c:\users\dell\documents\github\robot_cln\pmac_cln\pmac_com\spstest\zpstest\cudpinterface.cpp(9): warning C4458: declaration of 'wVersionRequested' hides class member
+         c:\users\dell\documents\github\robot_cln\pmac_cln\pmac_com\spstest\zpstest\cudpinterface.h(18): note: see declaration of 'cUDPInterface::wVersionRequested'
+     1>c:\users\dell\documents\github\robot_cln\pmac_cln\pmac_com\spstest\zpstest\cudpinterface.cpp(10): warning C4458: declaration of 'wsaData' hides class member
+         c:\users\dell\documents\github\robot_cln\pmac_cln\pmac_com\spstest\zpstest\cudpinterface.h(19): note: see declaration of 'cUDPInterface::wsaData'
+     1>c:\users\dell\documents\github\robot_cln\pmac_cln\pmac_com\spstest\zpstest\cudpinterface.cpp(11): warning C4458: declaration of 'err' hides class member
+         c:\users\dell\documents\github\robot_cln\pmac_cln\pmac_com\spstest\zpstest\cudpinterface.h(20): note: see declaration of 'cUDPInterface::err'
        Link:
-         D:\Program Files\Microsoft Visual Studio 14.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"E:\users\dell\documents\visual studio 14\Projects\ZPStest\Debug\ZPStest.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"E:\users\dell\documents\visual studio 14\Projects\ZPStest\Debug\ZPStest.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"E:\users\dell\documents\visual studio 14\Projects\ZPStest\Debug\ZPStest.lib" /MACHINE:X86 Debug\main.obj
+         D:\Program Files\Microsoft Visual Studio 14.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\DELL\Documents\GitHub\Robot_cln\PMAC_CLN\PMAC_Com\SPStest\Debug\ZPStest.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\DELL\Documents\GitHub\Robot_cln\PMAC_CLN\PMAC_Com\SPStest\Debug\ZPStest.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\DELL\Documents\GitHub\Robot_cln\PMAC_CLN\PMAC_Com\SPStest\Debug\ZPStest.lib" /MACHINE:X86 Debug\cUDPInterface.obj
+         Debug\main.obj
          Debug\motion.obj
          Debug\Rs232.obj
          Debug\Scomm.obj
          Debug\stdafx.obj
-         ZPStest.vcxproj -> E:\users\dell\documents\visual studio 14\Projects\ZPStest\Debug\ZPStest.exe
-     1>Done Building Project "E:\users\dell\documents\visual studio 14\Projects\ZPStest\ZPStest\ZPStest.vcxproj" (Build target(s)).
+         ZPStest.vcxproj -> C:\Users\DELL\Documents\GitHub\Robot_cln\PMAC_CLN\PMAC_Com\SPStest\Debug\ZPStest.exe
+     1>Done Building Project "C:\Users\DELL\Documents\GitHub\Robot_cln\PMAC_CLN\PMAC_Com\SPStest\ZPStest\ZPStest.vcxproj" (Build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:00.81
+Time Elapsed 00:00:00.79
