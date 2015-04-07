@@ -15,7 +15,7 @@ namespace TableTennisV3.ToolResource
         //pmac 相关变量       
         public static PCOMMSERVERLib.PmacDeviceClass Pmac;
         public int m_nDevice, m_nMotor, m_nServo, m_nDPRBase, m_nDPRSize;
-        public bool m_bDeviceOpen, m_bDPRAvailable, m_bTurbo;
+        public bool m_bDeviceOpen, m_bDPRAvailable, m_bTurbo,m_isServoON;
 
         public string m_PMAC_msg { get; set; }
         public string m_PMAC_cmd { get; set; }
@@ -26,16 +26,18 @@ namespace TableTennisV3.ToolResource
             SetAllEvents();
             m_bDeviceOpen = false;
         }
-        ~ cPMAC()
-        {
-            //if (Pmac!= null && m_bDeviceOpen)
-            //{
-            //    Pmac.Close(m_nDevice);
-            //    m_bDeviceOpen = false;
-            //}     
-        }
+        //~ cPMAC()
+        //{
+        //    //if (Pmac!= null && m_bDeviceOpen)
+        //    //{
+        //    //    Pmac.Close(m_nDevice);
+        //    //    m_bDeviceOpen = false;
+        //    //}     
+        //}
         #endregion
 
+
+        #region 内部函数
         #region 连接函数
         public bool ConectToPMAC()
         {
@@ -99,6 +101,38 @@ namespace TableTennisV3.ToolResource
         }
         #endregion
 
+        #region 开伺服
+        public void ServoON()
+        {
+            if (m_bDeviceOpen)
+            {
+                m_PMAC_cmd = "#1 J/";
+                SendCMD();
+                m_PMAC_cmd = "#2 J/";
+                SendCMD();
+                m_isServoON = true;
+            }
+        }
+        #endregion //开伺服
+
+
+        #region 调用程序
+        public void RunProgram(int ProIndex)
+        {
+            if (m_bDeviceOpen)
+            {
+                m_PMAC_cmd = "&1 B" + ProIndex.ToString() + " R";
+                SendCMD();
+            }
+            else
+            {
+                MessageBox.Show("PMAC unconected");
+            }
+        }
+        #endregion //开伺服
+
+
+        #endregion //内部函数
         //----------------------------------------------
         //注册PMAC的各种事件
         # region 注册PMAC的各种事件

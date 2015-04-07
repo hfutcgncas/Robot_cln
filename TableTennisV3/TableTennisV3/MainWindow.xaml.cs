@@ -27,9 +27,8 @@ namespace TableTennisV3
         public MainWindow()
         {
             InitializeComponent();
-
         }
-
+        
 
     }
 }

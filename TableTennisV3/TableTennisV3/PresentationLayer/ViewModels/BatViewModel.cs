@@ -53,14 +53,16 @@ namespace TableTennisV3.PresentationLayer.ViewModels
 
         private readonly ICommand _ConectToPMACCmd;
         private readonly ICommand _SendToPMACCmd;
+        private readonly ICommand _PMACServoONCmd;
+        private readonly ICommand _PMACRunPgmCmd;
 
         private readonly ICommand _ConectToZSPCmd;
-        private readonly ICommand _SendToZSPCmd;
+       // private readonly ICommand _SendToZSPCmd;
 
         private Process ZSPClient_exe;
         #endregion
 
-        //Private Variables 完成变量的初始化和命令函数的绑定
+        //构造函数 完成变量的初始化和命令函数的绑定
         #region Constructors
 
         /// <summary>
@@ -69,23 +71,25 @@ namespace TableTennisV3.PresentationLayer.ViewModels
         public BatViewModel()
         {
             bat = new cBat();
-          
+            //------------------------------
             _HomeCmd    = new RelayCommand(Home, CanHome);
             _HitBallCmd = new RelayCommand(HitBall, CanHitBall);
             _MoveToCmd  = new RelayCommand(MoveTo, CanMoveTo);
 
-            _ConectToPMACCmd = new RelayCommand(ConectToPMAC, CanConectToPMAC);
-            _SendToPMACCmd = new RelayCommand(SendToPMAC, CanSendToPMAC);
+            _ConectToPMACCmd    = new RelayCommand(ConectToPMAC, CanConectToPMAC);
+            _SendToPMACCmd      = new RelayCommand(SendToPMAC, CanSendToPMAC);
+            _PMACServoONCmd     = new RelayCommand(PMACServoON, CanPMACServoON);
+            _PMACRunPgmCmd      = new RelayCommand(PMACRunPgm, CanPMACRunPgm);
 
             _ConectToZSPCmd = new RelayCommand(ConectToZSP, CanConectToZSP);
-
+            //------------------------------
             ZSPClient_exe = new Process();
 
         }
 
         #endregion
 
-        //Properties 用于交互的变量和命令
+        //Properties & Commands 用于交互的变量和命令
         #region Properties & Commands
 
         #region Commands
@@ -98,6 +102,10 @@ namespace TableTennisV3.PresentationLayer.ViewModels
         public ICommand MoveToCmd { get { return _MoveToCmd; } }
 
         public ICommand ConectToZSPCmd { get { return _ConectToZSPCmd; } }
+
+        public ICommand PMACServoONCmd { get { return _PMACServoONCmd; } }
+
+        public ICommand PMACRunPgmCmd { get { return _PMACRunPgmCmd; } }
         #endregion
 
         #region Properties
@@ -169,7 +177,7 @@ namespace TableTennisV3.PresentationLayer.ViewModels
         #endregion
         #endregion
 
-        //Commands 命令函数的定义
+        //Commands 命令函数的具体定义
         #region Commands
         public bool CanHome(object obj)
         {
@@ -249,6 +257,24 @@ namespace TableTennisV3.PresentationLayer.ViewModels
                 MessageBox.Show(e.Message);
             }
 
+        }
+        //---------------------------------------------------------- 开运动控制卡伺服
+        public bool CanPMACServoON(object obj)
+        {
+            return true;
+        }
+        public void PMACServoON(object obj)
+        {
+            bat.pmac_card.ServoON();
+        }
+        //---------------------------------------------------------- 运行程序
+        public bool CanPMACRunPgm(object obj)
+        {
+            return true;
+        }
+        public void PMACRunPgm(object obj)
+        {
+            bat.pmac_card.RunProgram(5);
         }
         #endregion
     }

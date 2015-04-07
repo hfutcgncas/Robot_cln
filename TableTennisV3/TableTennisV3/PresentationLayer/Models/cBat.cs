@@ -12,11 +12,20 @@ namespace TableTennisV3.PresentationLayer.Models
 {
     class cBat
     {
-        private int SMax = 165 ;
-        private int SMin = 80;
+        public int XMax = 50000;
+        public int XMin = -50000;
 
-        private int PMax = 160;
-        private int PMin = 110;
+        public int YMax = 50000;
+        public int YMin = -10000;
+
+        public int ZMax = 165;
+        public int ZMin = 80;
+
+        public int SMax = 165;
+        public int SMin = 80;
+
+        public int PMax = 160;
+        public int PMin = 110;
 
 
         public cBat()
@@ -42,10 +51,12 @@ namespace TableTennisV3.PresentationLayer.Models
             get { return hit_x; }
             set
             {
+                if (value > XMax) value = XMax;
+                if (value < XMin) value = XMin;
                 hit_x = value;
                 if (pmac_card != null && pmac_card.m_bDeviceOpen)
                 {
-                    Set_PMAC_P("p1", value);
+                    Set_PMAC_P("p1", hit_x);
                 }
             }
         }
@@ -56,10 +67,12 @@ namespace TableTennisV3.PresentationLayer.Models
             get { return hit_y; }
             set
             {
+                if (value > YMax) value = YMax;
+                if (value < YMin) value = YMin;
                 hit_y = value;
                 if (pmac_card != null && pmac_card.m_bDeviceOpen)
                 {
-                    Set_PMAC_P("p2", value);
+                    Set_PMAC_P("p2", hit_y);
                 }
             }
         }
