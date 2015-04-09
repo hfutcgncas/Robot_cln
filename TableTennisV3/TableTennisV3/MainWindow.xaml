@@ -12,6 +12,7 @@
     
     <Grid Name="GridMainWindow">
         <Views:BatSettingView />
+        <!--<Views:VisionView Margin="266,159,48,24" />-->
     </Grid>
 
 </Window>

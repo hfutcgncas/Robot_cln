@@ -108,3 +108,5 @@ C:\Users\DELL\Documents\GitHub\Robot_cln\TableTennisV3\TableTennisV3\obj\Debug\T
 C:\Users\DELL\Documents\GitHub\Robot_cln\TableTennisV3\TableTennisV3\obj\Debug\TableTennisV3.Properties.Resources.resources
 C:\Users\DELL\Documents\GitHub\Robot_cln\TableTennisV3\TableTennisV3\obj\Debug\TableTennisV3.csproj.GenerateResource.Cache
 C:\Users\DELL\Documents\GitHub\Robot_cln\TableTennisV3\TableTennisV3\obj\Debug\TableTennisV3.csprojResolveAssemblyReference.cache
+C:\Users\DELL\Documents\GitHub\Robot_cln\TableTennisV3\TableTennisV3\obj\Debug\PresentationLayer\Views\VisionView.g.cs
+C:\Users\DELL\Documents\GitHub\Robot_cln\TableTennisV3\TableTennisV3\obj\Debug\PresentationLayer\Views\VisionView.baml

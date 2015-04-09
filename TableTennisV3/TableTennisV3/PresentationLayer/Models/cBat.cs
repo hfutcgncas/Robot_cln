@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,20 +13,10 @@ namespace TableTennisV3.PresentationLayer.Models
 {
     class cBat
     {
-        public int XMax = 50000;
-        public int XMin = -50000;
-
-        public int YMax = 50000;
-        public int YMin = -10000;
-
-        public int ZMax = 165;
-        public int ZMin = 80;
-
-        public int SMax = 165;
-        public int SMin = 80;
-
-        public int PMax = 160;
-        public int PMin = 110;
+        public const int SMax = 165;
+        public const int SMin = 80;
+        public const int PMax = 160;
+        public const int PMin = 110;
 
 
         public cBat()
@@ -45,34 +36,51 @@ namespace TableTennisV3.PresentationLayer.Models
         #region Variable
         #region Hit Variables
         //--------------
-        private int hit_x;
-        public int Hit_X
+        private double hit_x;
+        public double Hit_X
         {
             get { return hit_x; }
             set
             {
-                if (value > XMax) value = XMax;
-                if (value < XMin) value = XMin;
+                if (value > Constants.MAX_X) value = Constants.MAX_X;
+                if (value < Constants.MIN_X) value = Constants.MIN_X;
                 hit_x = value;
                 if (pmac_card != null && pmac_card.m_bDeviceOpen)
                 {
-                    Set_PMAC_P("p1", hit_x);
+                    Set_PMAC_P("p1", hit_x * Constants.unit_X);
                 }
             }
         }
+
+        private double hit_vx;
+        public double Hit_VX
+        {
+            get { return hit_vx; }
+            set
+            {
+                if (value > Constants.MAX_VX) value = Constants.MAX_VX;
+                if (value < Constants.MIN_VX) value = Constants.MIN_VX;
+                hit_vx = value;
+                if (pmac_card != null && pmac_card.m_bDeviceOpen)
+                {
+                    Set_PMAC_P("p9", hit_vx * Constants.unit_X); //转化为cnt/ms
+                }
+            }
+        }
+
         //--------------
-        private int hit_y;
-        public int Hit_Y
+        private double hit_y;
+        public double Hit_Y
         {
             get { return hit_y; }
             set
             {
-                if (value > YMax) value = YMax;
-                if (value < YMin) value = YMin;
+                if (value > Constants.MAX_Y) value = Constants.MAX_Y;
+                if (value < Constants.MIN_Y) value = Constants.MIN_Y;
                 hit_y = value;
                 if (pmac_card != null && pmac_card.m_bDeviceOpen)
                 {
-                    Set_PMAC_P("p2", hit_y);
+                    Set_PMAC_P("p2", (int)(hit_y * Constants.unit_Y));
                 }
             }
         }
@@ -167,7 +175,7 @@ namespace TableTennisV3.PresentationLayer.Models
             return false;
         }
 
-        public bool Set_PMAC_P(string px, int value)
+        public bool Set_PMAC_P(string px, double  value)
         {
             pmac_card.m_PMAC_cmd = px + "=" + value.ToString();
             pmac_card.SendCMD();

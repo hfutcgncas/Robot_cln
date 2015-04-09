@@ -15,11 +15,14 @@ using TableTennisV3.MVVM.Common;
 using System.Diagnostics;
 using System.Threading;
 
+using TableTennisV3.ToolResource;
+
+
 namespace TableTennisV3.PresentationLayer.ViewModels
 {
     class BatViewModel : INotifyPropertyChanged
     {
-        //INotifyPropertyChanged Members 不需更改
+        //INotifyPropertyChanged Members 不需更改---------------------------------------------------------
         #region INotifyPropertyChanged Members
 
         /// <summary>
@@ -40,13 +43,15 @@ namespace TableTennisV3.PresentationLayer.ViewModels
         }
         #endregion
 
-        //Private Variables 包括变量和命令的定义
+        //Private Variables 包括变量和命令的定义---------------------------------------------------------
         #region Private Variables
         /*The Variables are meant to be readonly as we mustnot change the address of any of them by creating new instances.
          *Problem with new istances is that since address changes the binding becomes invalid.
          *Instantiate all the variables in the constructor.
          */
-        private readonly cBat bat;
+        private readonly cBat bat; //控制球拍
+        private readonly cVision vision; //接收视觉结果
+
         private readonly ICommand _HomeCmd;
         private readonly ICommand _HitBallCmd;
         private readonly ICommand _MoveToCmd;
@@ -55,14 +60,18 @@ namespace TableTennisV3.PresentationLayer.ViewModels
         private readonly ICommand _SendToPMACCmd;
         private readonly ICommand _PMACServoONCmd;
         private readonly ICommand _PMACRunPgmCmd;
+        private readonly ICommand _PMACResetCmd;
 
         private readonly ICommand _ConectToZSPCmd;
+
+
+        private readonly ICommand _ConectToVisionCmd;
        // private readonly ICommand _SendToZSPCmd;
 
         private Process ZSPClient_exe;
         #endregion
 
-        //构造函数 完成变量的初始化和命令函数的绑定
+        //构造函数 完成变量的初始化和命令函数的绑定---------------------------------------------------------
         #region Constructors
 
         /// <summary>
@@ -71,6 +80,8 @@ namespace TableTennisV3.PresentationLayer.ViewModels
         public BatViewModel()
         {
             bat = new cBat();
+            vision = new cVision();
+
             //------------------------------
             _HomeCmd    = new RelayCommand(Home, CanHome);
             _HitBallCmd = new RelayCommand(HitBall, CanHitBall);
@@ -80,8 +91,11 @@ namespace TableTennisV3.PresentationLayer.ViewModels
             _SendToPMACCmd      = new RelayCommand(SendToPMAC, CanSendToPMAC);
             _PMACServoONCmd     = new RelayCommand(PMACServoON, CanPMACServoON);
             _PMACRunPgmCmd      = new RelayCommand(PMACRunPgm, CanPMACRunPgm);
+            _PMACResetCmd       = new RelayCommand(PMACReset, CanPMACReset);
 
             _ConectToZSPCmd = new RelayCommand(ConectToZSP, CanConectToZSP);
+
+            _ConectToVisionCmd = new RelayCommand(ConectToVision, CanConectToVision);
             //------------------------------
             ZSPClient_exe = new Process();
 
@@ -89,7 +103,7 @@ namespace TableTennisV3.PresentationLayer.ViewModels
 
         #endregion
 
-        //Properties & Commands 用于交互的变量和命令
+        //Properties & Commands 用于交互的变量和命令---------------------------------------------------------
         #region Properties & Commands
 
         #region Commands
@@ -106,10 +120,21 @@ namespace TableTennisV3.PresentationLayer.ViewModels
         public ICommand PMACServoONCmd { get { return _PMACServoONCmd; } }
 
         public ICommand PMACRunPgmCmd { get { return _PMACRunPgmCmd; } }
+
+        public ICommand PMACResetCmd { get { return _PMACResetCmd; } }
+
+
+        public ICommand ConectToVisionCmd { get { return _ConectToVisionCmd; } }
         #endregion
 
         #region Properties
-        public int Hit_X
+        public int MAX_X = (int)Constants.MAX_X;
+        public int MIN_X = (int)Constants.MIN_X;
+        public int MAX_Y = (int)Constants.MAX_Y;
+        public int MIN_Y = (int)Constants.MIN_Y;
+
+
+        public double Hit_X
         {
             get { return bat.Hit_X; }
             set
@@ -118,7 +143,19 @@ namespace TableTennisV3.PresentationLayer.ViewModels
                 OnPropertyChanged("Hit_X");
             }
         }
-        public int Hit_Y
+
+        public double Hit_VX
+        {
+            get { return bat.Hit_VX; }
+            set
+            {
+                bat.Hit_VX = value;
+                OnPropertyChanged("Hit_VX");
+            }
+        }
+
+
+        public double Hit_Y
         {
             get { return bat.Hit_Y; }
             set
@@ -174,11 +211,25 @@ namespace TableTennisV3.PresentationLayer.ViewModels
                 OnPropertyChanged("PMAC_cmd");
             }
         }
+
+        private string vision_res = "";
+        public string VisionResult
+        {
+            get { return vision_res; } 
+            set
+            {
+                vision_res = value;
+                OnPropertyChanged("VisionResult");
+            }
+        }
         #endregion
         #endregion
 
-        //Commands 命令函数的具体定义
+        //Commands 命令函数的具体定义---------------------------------------------------------
         #region Commands
+
+        #region Motion
+
         public bool CanHome(object obj)
         {
             //Enable the Button in some situation
@@ -219,6 +270,7 @@ namespace TableTennisV3.PresentationLayer.ViewModels
         }
         public void ConectToPMAC(object obj)
         {
+           
             bat.pmac_card.ConectToPMAC();
             PMAC_msg = bat.pmac_msg;
         }
@@ -267,6 +319,17 @@ namespace TableTennisV3.PresentationLayer.ViewModels
         {
             bat.pmac_card.ServoON();
         }
+        //---------------------------------------------------------- 开运动控制卡伺服
+        public bool CanPMACReset(object obj)
+        {
+            return true;
+        }
+        public void PMACReset(object obj)
+        {
+            bat.pmac_card.m_PMAC_cmd = "$$$";
+            bat.pmac_card.SendCMD();
+        }
+        
         //---------------------------------------------------------- 运行程序
         public bool CanPMACRunPgm(object obj)
         {
@@ -274,8 +337,43 @@ namespace TableTennisV3.PresentationLayer.ViewModels
         }
         public void PMACRunPgm(object obj)
         {
-            bat.pmac_card.RunProgram(5);
+            bat.pmac_card.RunProgram(6);
         }
+        #endregion //motion
+
+        #region Vision
+        //----------------------------------------------------------
+        public bool CanConectToVision(object obj)
+        {
+            //Enable the Button in some situation
+            return true;
+        }
+        public void ConectToVision(object obj)
+        {        
+            vision.initRcv();
+            Thread RcvThread = new Thread(new ThreadStart(delegate
+            {
+                while (true)
+                {
+                    vision.ReciveData();
+                    VisionResult = "   X  = " + vision.hitPar[1].ToString() +
+                                   "\n Z  = " + vision.hitPar[2].ToString() +
+                                   "\n Vx = " + vision.hitPar[3].ToString() +
+                                   "\n Vy = " + vision.hitPar[4].ToString() +
+                                   "\n Vz = " + vision.hitPar[5].ToString() +
+                                   "\n tg = " + vision.hitPar[12].ToString();
+                    Hit_X = vision.hitPar[1];
+                    Hit_Y = 200;
+                    // MessageBox.Show("get here");
+                    Thread.Sleep(50);
+                }
+            }
+            ));
+            RcvThread.Start();
+
+        }
+        //----------------------------------------------------------
+        #endregion //Vision
         #endregion
     }
 }

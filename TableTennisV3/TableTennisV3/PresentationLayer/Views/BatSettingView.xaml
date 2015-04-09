@@ -6,19 +6,19 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:TableTennisV3.PresentationLayer.Views"
              xmlns:ViewModels="clr-namespace:TableTennisV3.PresentationLayer.ViewModels"
-             mc:Ignorable="d" Height="277.385" Width="442.308">
+             mc:Ignorable="d" Height="299.385" Width="444.308">
     <UserControl.DataContext>
         <ViewModels:BatViewModel/>
     </UserControl.DataContext>
 
     <Grid>
-        <TextBlock HorizontalAlignment="Left" Height="27" TextWrapping="Wrap"  VerticalAlignment="Top" Width="214" Text="{Binding PMAC_msg}" Margin="10,246,0,0" Background="#FFC5C5C5"/>
+        <TextBlock HorizontalAlignment="Left" Height="43" TextWrapping="Wrap"  VerticalAlignment="Top" Width="214" Text="{Binding PMAC_msg}" Margin="10,246,0,0" Background="#FFC5C5C5"/>
         <TabControl HorizontalAlignment="Left" Height="114" Margin="10,127,0,0" VerticalAlignment="Top" Width="214">
             <TabItem Header="Program mode" Margin="-2,-2,1,-1">
                 <Grid Background="#FFE5E5E5">
-                    <Button Content="Servo ON" HorizontalAlignment="Left" Height="22" Margin="10,10,0,0" VerticalAlignment="Top" Width="171" Command="{Binding PMACServoONCmd}"/>
-                    <ComboBox HorizontalAlignment="Left" Height="24" Margin="10,49,0,0" VerticalAlignment="Top" Width="49"/>
-                    <Button Content="Run" HorizontalAlignment="Left" Height="24" Margin="77,49,0,0" VerticalAlignment="Top" Width="104" Command="{Binding PMACRunPgmCmd}"/>
+                    <Button Content="Servo ON" HorizontalAlignment="Left" Height="23" Margin="10,10,0,0" VerticalAlignment="Top" Width="80" Command="{Binding PMACServoONCmd}"/>
+                    <Button Content="Run" HorizontalAlignment="Left" Height="23" Margin="100,10,0,0" VerticalAlignment="Top" Width="83" Command="{Binding PMACRunPgmCmd}"/>
+                    <Button Content="Reset PMAC" HorizontalAlignment="Left" Height="23" Margin="15,49,0,0" VerticalAlignment="Top" Width="75" Command="{Binding PMACResetCmd}"/>
                 </Grid>
             </TabItem>
 
@@ -35,13 +35,13 @@
         <GroupBox Header="GroupBox" HorizontalAlignment="Left" Height="114" Margin="10,10,0,0" VerticalAlignment="Top" Width="214">
             <Grid Height="86" Margin="0,10,0,-4" VerticalAlignment="Top" HorizontalAlignment="Left" Width="205">
                 <TextBox HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding Hit_X, Mode=TwoWay}" Width="72" Height="20" VerticalAlignment="Top"/>
-                <Slider HorizontalAlignment="Left" Margin="77,0,0,0" Width="72" Value="{Binding Hit_X, Mode=TwoWay}" SmallChange="100" Maximum="50000" Minimum="-50000" Height="20" VerticalAlignment="Top"/>
+                <Slider HorizontalAlignment="Left" Margin="77,0,0,0" Width="72" Value="{Binding Hit_X, Mode=TwoWay}" SmallChange="10" Maximum="300" Minimum="-300" Height="20" VerticalAlignment="Top"/>
 
                 <TextBox HorizontalAlignment="Left" Margin="0,25,0,0" TextWrapping="Wrap" Text="{Binding Hit_Y, Mode=TwoWay}" Width="72" Height="20" VerticalAlignment="Top"/>
-                <Slider HorizontalAlignment="Left" Margin="77,25,0,0" Width="72" Value="{Binding Hit_Y, Mode=TwoWay}" SmallChange="100" Maximum="50000" Minimum="-10000" Height="20" VerticalAlignment="Top"/>
+                <Slider HorizontalAlignment="Left" Margin="77,25,0,0" Width="72" Value="{Binding Hit_Y, Mode=TwoWay}" SmallChange="10" Maximum="250" Minimum="-100" Height="20" VerticalAlignment="Top"/>
 
                 <TextBox HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding Hit_X, Mode=TwoWay}" Width="53" Height="20" VerticalAlignment="Top" Margin="148,59,0,0"/>
-                <Slider HorizontalAlignment="Left" Margin="173,-5,0,0" Width="28" Value="{Binding Hit_X, Mode=TwoWay}" SmallChange="100" Maximum="50000" Minimum="-50000" Height="59" VerticalAlignment="Top" Orientation="Vertical"/>
+                <Slider HorizontalAlignment="Left" Margin="173,-5,0,0" Width="28" Value="{Binding Hit_VX, Mode=TwoWay}" SmallChange="100" Maximum="2000" Minimum="0" Height="59" VerticalAlignment="Top" Orientation="Vertical"/>
 
                 <Button Content="ConectPMAC" HorizontalAlignment="Left" Height="20" Margin="0,59,0,0" VerticalAlignment="Top" Width="131" Command="{Binding ConectToPMACCmd}"/>
             </Grid>
@@ -58,5 +58,10 @@
             </Grid>
         </GroupBox>
 
+        <Grid Margin="229,147,10,10">
+            <Button Content="Connect To Vision" Height="29" VerticalAlignment="Top" Margin="0,0,4,0" Command="{Binding ConectToVisionCmd}"/>
+            <TextBlock Margin="0,34,0,0" TextWrapping="Wrap" Text="{Binding Path = VisionResult}"/>
+        </Grid>
+        
     </Grid>
 </UserControl>
