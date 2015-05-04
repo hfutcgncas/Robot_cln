@@ -19,3 +19,4 @@ C:\Users\DELL\Documents\GitHub\Robot_cln\TableTennisV3\TableTennisV3\obj\Release
 C:\Users\DELL\Documents\GitHub\Robot_cln\TableTennisV3\TableTennisV3\obj\Release\TableTennisV3.csproj.GenerateResource.Cache
 C:\Users\DELL\Documents\GitHub\Robot_cln\TableTennisV3\TableTennisV3\obj\Release\TableTennisV3.exe
 C:\Users\DELL\Documents\GitHub\Robot_cln\TableTennisV3\TableTennisV3\obj\Release\TableTennisV3.pdb
+C:\Users\DELL\Documents\GitHub\Robot_cln\TableTennisV3\TableTennisV3\obj\Release\TableTennisV3.csprojResolveAssemblyReference.cache

@@ -11,7 +11,7 @@ using TableTennisV3.ToolResource;
 
 namespace TableTennisV3.PresentationLayer.Models
 {
-    class cBat
+    class cBat  
     {
         public const int SMax = 165;
         public const int SMin = 80;
@@ -22,7 +22,9 @@ namespace TableTennisV3.PresentationLayer.Models
         public cBat()
         {
             Hit_X = 0;
+            hit_vx = 0.1;
             Hit_Y = 0;
+            hit_vy = 0.1;
             Hit_Z = 0;
 
             Hit_S = 127;
@@ -47,7 +49,7 @@ namespace TableTennisV3.PresentationLayer.Models
                 hit_x = value;
                 if (pmac_card != null && pmac_card.m_bDeviceOpen)
                 {
-                    Set_PMAC_P("p1", hit_x * Constants.unit_X);
+                    Set_PMAC_P("p1", hit_x * Constants.unit_X );
                 }
             }
         }
@@ -63,7 +65,7 @@ namespace TableTennisV3.PresentationLayer.Models
                 hit_vx = value;
                 if (pmac_card != null && pmac_card.m_bDeviceOpen)
                 {
-                    Set_PMAC_P("p9", hit_vx * Constants.unit_X); //转化为cnt/ms
+                    Set_PMAC_P("p9", hit_vx * Constants.unit_X * Constants.V_factor); //转化为cnt/ms
                 }
             }
         }
@@ -84,6 +86,23 @@ namespace TableTennisV3.PresentationLayer.Models
                 }
             }
         }
+
+        private double hit_vy;
+        public double Hit_VY
+        {
+            get { return hit_vy; }
+            set
+            {
+                if (value > Constants.MAX_VY) value = Constants.MAX_VY;
+                if (value < Constants.MIN_VY) value = Constants.MIN_VY;
+                hit_vy = value;
+                if (pmac_card != null && pmac_card.m_bDeviceOpen)
+                {
+                    Set_PMAC_P("p10", hit_vy * Constants.unit_Y * Constants.V_factor); //转化为cnt/ms
+                }
+            }
+        }
+
         //--------------
         private int hit_z;
         public int Hit_Z

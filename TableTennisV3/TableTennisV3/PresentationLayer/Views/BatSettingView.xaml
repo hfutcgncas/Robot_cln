@@ -6,6 +6,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:TableTennisV3.PresentationLayer.Views"
              xmlns:ViewModels="clr-namespace:TableTennisV3.PresentationLayer.ViewModels"
+             xmlns:Tools ="clr-namespace:TableTennisV3.ToolResource"
              mc:Ignorable="d" Height="299.385" Width="444.308">
     <UserControl.DataContext>
         <ViewModels:BatViewModel/>
@@ -18,7 +19,7 @@
                 <Grid Background="#FFE5E5E5">
                     <Button Content="Servo ON" HorizontalAlignment="Left" Height="23" Margin="10,10,0,0" VerticalAlignment="Top" Width="80" Command="{Binding PMACServoONCmd}"/>
                     <Button Content="Run" HorizontalAlignment="Left" Height="23" Margin="100,10,0,0" VerticalAlignment="Top" Width="83" Command="{Binding PMACRunPgmCmd}"/>
-                    <Button Content="Reset PMAC" HorizontalAlignment="Left" Height="23" Margin="15,49,0,0" VerticalAlignment="Top" Width="75" Command="{Binding PMACResetCmd}"/>
+                    <Button Content="Servo OFF" HorizontalAlignment="Left" Height="23" Margin="15,49,0,0" VerticalAlignment="Top" Width="75" Command="{Binding PMACServoOFFCmd}"/>
                 </Grid>
             </TabItem>
 
@@ -40,8 +41,12 @@
                 <TextBox HorizontalAlignment="Left" Margin="0,25,0,0" TextWrapping="Wrap" Text="{Binding Hit_Y, Mode=TwoWay}" Width="72" Height="20" VerticalAlignment="Top"/>
                 <Slider HorizontalAlignment="Left" Margin="77,25,0,0" Width="72" Value="{Binding Hit_Y, Mode=TwoWay}" SmallChange="10" Maximum="250" Minimum="-100" Height="20" VerticalAlignment="Top"/>
 
-                <TextBox HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding Hit_X, Mode=TwoWay}" Width="53" Height="20" VerticalAlignment="Top" Margin="148,59,0,0"/>
-                <Slider HorizontalAlignment="Left" Margin="173,-5,0,0" Width="28" Value="{Binding Hit_VX, Mode=TwoWay}" SmallChange="100" Maximum="2000" Minimum="0" Height="59" VerticalAlignment="Top" Orientation="Vertical"/>
+                <TextBox TextWrapping="Wrap" Text="{Binding Hit_VX, Mode=TwoWay}" Height="20" VerticalAlignment="Top" Margin="136,59,0,0" HorizontalAlignment="Left" Width="35"/>
+                <Slider HorizontalAlignment="Left" Margin="148,-5,0,0" Width="23" Value="{Binding Hit_VX, Mode=TwoWay}" SmallChange="0.05" Maximum="1" Minimum="0" Height="59" VerticalAlignment="Top" Orientation="Vertical"/>
+
+                <TextBox TextWrapping="Wrap" Text="{Binding Hit_VY, Mode=TwoWay}" Height="20" VerticalAlignment="Top" Margin="176,59,0,0" HorizontalAlignment="Left" Width="29"/>
+                <Slider HorizontalAlignment="Left" Margin="176,-5,0,0" Width="23" Value="{Binding Hit_VY, Mode=TwoWay}" SmallChange="0.1" Maximum="2" Minimum="0" Height="59" VerticalAlignment="Top" Orientation="Vertical"/>
+
 
                 <Button Content="ConectPMAC" HorizontalAlignment="Left" Height="20" Margin="0,59,0,0" VerticalAlignment="Top" Width="131" Command="{Binding ConectToPMACCmd}"/>
             </Grid>
@@ -62,6 +67,6 @@
             <Button Content="Connect To Vision" Height="29" VerticalAlignment="Top" Margin="0,0,4,0" Command="{Binding ConectToVisionCmd}"/>
             <TextBlock Margin="0,34,0,0" TextWrapping="Wrap" Text="{Binding Path = VisionResult}"/>
         </Grid>
-        
+
     </Grid>
 </UserControl>

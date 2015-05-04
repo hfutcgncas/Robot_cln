@@ -60,7 +60,7 @@ namespace TableTennisV3.PresentationLayer.ViewModels
         private readonly ICommand _SendToPMACCmd;
         private readonly ICommand _PMACServoONCmd;
         private readonly ICommand _PMACRunPgmCmd;
-        private readonly ICommand _PMACResetCmd;
+        private readonly ICommand _PMACServoOFFCmd;
 
         private readonly ICommand _ConectToZSPCmd;
 
@@ -91,7 +91,7 @@ namespace TableTennisV3.PresentationLayer.ViewModels
             _SendToPMACCmd      = new RelayCommand(SendToPMAC, CanSendToPMAC);
             _PMACServoONCmd     = new RelayCommand(PMACServoON, CanPMACServoON);
             _PMACRunPgmCmd      = new RelayCommand(PMACRunPgm, CanPMACRunPgm);
-            _PMACResetCmd       = new RelayCommand(PMACReset, CanPMACReset);
+            _PMACServoOFFCmd    = new RelayCommand(PMACServoOFF, CanPMACServoOFF);
 
             _ConectToZSPCmd = new RelayCommand(ConectToZSP, CanConectToZSP);
 
@@ -121,7 +121,7 @@ namespace TableTennisV3.PresentationLayer.ViewModels
 
         public ICommand PMACRunPgmCmd { get { return _PMACRunPgmCmd; } }
 
-        public ICommand PMACResetCmd { get { return _PMACResetCmd; } }
+        public ICommand PMACServoOFFCmd { get { return _PMACServoOFFCmd; } }
 
 
         public ICommand ConectToVisionCmd { get { return _ConectToVisionCmd; } }
@@ -164,6 +164,18 @@ namespace TableTennisV3.PresentationLayer.ViewModels
                 OnPropertyChanged("Hit_Y");
             }
         }
+
+        public double Hit_VY
+        {
+            get { return bat.Hit_VY; }
+            set
+            {
+                bat.Hit_VY = value;
+                OnPropertyChanged("Hit_VY");
+            }
+        }
+
+
         public int Hit_Z
         {
             get { return bat.Hit_Z; }
@@ -222,6 +234,8 @@ namespace TableTennisV3.PresentationLayer.ViewModels
                 OnPropertyChanged("VisionResult");
             }
         }
+
+        public int programNO;
         #endregion
         #endregion
 
@@ -318,16 +332,17 @@ namespace TableTennisV3.PresentationLayer.ViewModels
         public void PMACServoON(object obj)
         {
             bat.pmac_card.ServoON();
+            PMAC_msg = bat.pmac_msg;
         }
-        //---------------------------------------------------------- 开运动控制卡伺服
-        public bool CanPMACReset(object obj)
+        //---------------------------------------------------------- 关运动控制卡伺服
+        public bool CanPMACServoOFF(object obj)
         {
             return true;
         }
-        public void PMACReset(object obj)
+        public void PMACServoOFF(object obj)
         {
-            bat.pmac_card.m_PMAC_cmd = "$$$";
-            bat.pmac_card.SendCMD();
+            bat.pmac_card.ServoOFF();
+            PMAC_msg = bat.pmac_msg;
         }
         
         //---------------------------------------------------------- 运行程序
@@ -337,7 +352,7 @@ namespace TableTennisV3.PresentationLayer.ViewModels
         }
         public void PMACRunPgm(object obj)
         {
-            bat.pmac_card.RunProgram(6);
+            bat.pmac_card.RunProgram(Constants.PMAC_Progm_NO);
         }
         #endregion //motion
 
@@ -349,7 +364,8 @@ namespace TableTennisV3.PresentationLayer.ViewModels
             return true;
         }
         public void ConectToVision(object obj)
-        {        
+        {
+
             vision.initRcv();
             Thread RcvThread = new Thread(new ThreadStart(delegate
             {
@@ -357,13 +373,17 @@ namespace TableTennisV3.PresentationLayer.ViewModels
                 {
                     vision.ReciveData();
                     VisionResult = "   X  = " + vision.hitPar[1].ToString() +
-                                   "\n Z  = " + vision.hitPar[2].ToString() +
-                                   "\n Vx = " + vision.hitPar[3].ToString() +
-                                   "\n Vy = " + vision.hitPar[4].ToString() +
-                                   "\n Vz = " + vision.hitPar[5].ToString() +
+                                   "\n Y  = " + vision.hitPar[2].ToString() +
+                                   "\n Z  = " + vision.hitPar[3].ToString() +
+                                   "\n Vx = " + vision.hitPar[4].ToString() +
+                                   "\n Vy = " + vision.hitPar[5].ToString() +
+                                   "\n Vz = " + vision.hitPar[6].ToString() +
                                    "\n tg = " + vision.hitPar[12].ToString();
                     Hit_X = vision.hitPar[1];
                     Hit_Y = 200;
+                    bat.pmac_card.m_PMAC_cmd = "P4 = 1";
+                    bat.pmac_card.SendCMD();
+
                     // MessageBox.Show("get here");
                     Thread.Sleep(50);
                 }

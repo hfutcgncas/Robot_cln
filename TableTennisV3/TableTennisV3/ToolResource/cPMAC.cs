@@ -25,6 +25,7 @@ namespace TableTennisV3.ToolResource
             Pmac = new PmacDeviceClass();
             SetAllEvents();
             m_bDeviceOpen = false;
+            m_isServoON = false;
         }
         //~ cPMAC()
         //{
@@ -101,19 +102,38 @@ namespace TableTennisV3.ToolResource
         }
         #endregion
 
-        #region 开伺服
+        #region 开关伺服
         public void ServoON()
         {
-            if (m_bDeviceOpen)
+            if (m_bDeviceOpen && !m_isServoON)
             {
-                m_PMAC_cmd = "#1 J/";
-                SendCMD();
-                m_PMAC_cmd = "#2 J/";
-                SendCMD();
-                m_isServoON = true;
+
+                    m_PMAC_cmd = "#1 J/";
+                    SendCMD();
+                    m_PMAC_cmd = "#2 J/";
+                    SendCMD();
+                    m_isServoON = true;        
             }
+          
         }
-        #endregion //开伺服
+
+        public void ServoOFF()
+        {
+            if (m_bDeviceOpen && m_isServoON)
+            {
+                m_PMAC_cmd = "Q";
+        
+                SendCMD();
+                m_PMAC_cmd = "#1 K";
+                SendCMD();
+                m_PMAC_cmd = "#2 K";
+                SendCMD();
+               
+                m_isServoON = false;
+            }
+            MessageBox.Show("get here");
+        }
+        #endregion //开关伺服
 
 
         #region 调用程序
@@ -178,9 +198,8 @@ namespace TableTennisV3.ToolResource
         // A error message from the server
         void OnError(int device, String filename, int errorNumber, int lineNumber, String msg)
         {
-            string str;
+            string str;        
             str = string.Format("{0} {1:D}, Line:{ 2:D},{ 4} { 3} { 4} ", filename, errorNumber, lineNumber, msg, '"');
-
             m_PMAC_msg = str;
         }
         // A interrupt message from the server
