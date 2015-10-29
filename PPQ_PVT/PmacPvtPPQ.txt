@@ -1,0 +1,30 @@
+
+
+&2 CLOSE undefine all
+#1 -> 187.5X
+#2 -> 136.05Y
+
+OPEN PROG 10 CLEAR
+LINEAR
+ABS
+P3=1
+P4=0
+P71=600
+P91=1000
+P6=300
+P7=400
+P8=500
+While (P3 = 1)
+  If (P4 = 1)
+    P92=(P8-P7)/(P71)*1000
+    P93=P91+P92
+    PVT(P91)
+    X(P6):0Y(P7):(P71)
+    PVT(P92)
+    Y(P8):(P71)
+    PVT(P93)
+    X0:0Y0:0
+    P4=0
+  EndIf
+EndWhile
+CLOSE

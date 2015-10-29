@@ -1,0 +1,8 @@
+D:\Users\Think\Documents\Visual Studio 2013\Projects\PMAC_Communicate\Pmac_Comm\bin\Debug\Pmac_Comm.dll
+D:\Users\Think\Documents\Visual Studio 2013\Projects\PMAC_Communicate\Pmac_Comm\bin\Debug\Pmac_Comm.pdb
+D:\Users\Think\Documents\Visual Studio 2013\Projects\PMAC_Communicate\Pmac_Comm\obj\Debug\Pmac_Comm.dll
+D:\Users\Think\Documents\Visual Studio 2013\Projects\PMAC_Communicate\Pmac_Comm\obj\Debug\Pmac_Comm.pdb
+C:\Users\DELL\Documents\Visual Studio 2013\Projects\PMAC_Communicate\Pmac_Comm\bin\Debug\Pmac_Comm.dll
+C:\Users\DELL\Documents\Visual Studio 2013\Projects\PMAC_Communicate\Pmac_Comm\bin\Debug\Pmac_Comm.pdb
+C:\Users\DELL\Documents\Visual Studio 2013\Projects\PMAC_Communicate\Pmac_Comm\obj\Debug\Pmac_Comm.dll
+C:\Users\DELL\Documents\Visual Studio 2013\Projects\PMAC_Communicate\Pmac_Comm\obj\Debug\Pmac_Comm.pdb
